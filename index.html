@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Marquee</title>
+    
+    <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+    
+    <div class="marquee">
+    </div>
+    
+    
+    
+    <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.color/jquery.color.js"></script>
+    <script type="text/javascript" src="js/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="js/marquee2.js"></script>
+    <script type="text/javascript">
+
+        jQuery(document).ready(function() {
+            window.marquee = new Marquee({
+                ContainerWidth: 1000
+            });
+
+            window.A = [[0,1,1,1,0],
+                        [1,0,0,0,1],
+                        [1,0,0,0,1],
+                        [1,1,1,1,1],
+                        [1,0,0,0,1],
+                        [1,0,0,0,1],
+                        [1,0,0,0,1]
+            ];
+
+
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+@import "compass/css3";
+
+
+$dotDiameter: 16px;
+$dotMargin: 2px;
+$dotsTall: 7;
+$dotColor: #400;
+$dotGlow: #FF6666;
+$dotHighlight: #FF5555;
+
+
+h1 {
+	font-family: Helvetica;
+	font-size: 36px;
+}
+
+
+
+.marquee {
+	position: relative;
+	padding: 10px;
+	background: #111;
+	height: ($dotDiameter + ($dotMargin * 2)) * $dotsTall;
+
+	.dot {
+		width: $dotDiameter;
+		height: $dotDiameter;
+		margin: 2px;
+		display: block;
+		float: left;
+		background: $dotColor;
+		@include border-radius(20em);
+
+		&.on {
+			@include box-shadow($dotGlow 0 0 10px);
+			background: $dotHighlight;
+		}
+
+	}
+}
+
