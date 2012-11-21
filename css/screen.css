@@ -67,20 +67,36 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
-/* line 18, ../sass/screen.scss */
+/* line 17, ../sass/screen.scss */
+body {
+  background: #000;
+}
+
+/* line 22, ../sass/screen.scss */
 h1 {
   font-family: Helvetica;
   font-size: 36px;
 }
 
-/* line 25, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
+.container {
+  text-align: center;
+}
+
+/* line 32, ../sass/screen.scss */
+.controls {
+  position: relative;
+}
+
+/* line 37, ../sass/screen.scss */
 .marquee {
   position: relative;
   padding: 10px;
   background: #111;
   height: 140px;
+  margin: 5% auto;
 }
-/* line 31, ../sass/screen.scss */
+/* line 45, ../sass/screen.scss */
 .marquee .dot {
   width: 16px;
   height: 16px;
@@ -94,7 +110,7 @@ h1 {
   -o-border-radius: 20em;
   border-radius: 20em;
 }
-/* line 40, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 .marquee .dot.on {
   -webkit-box-shadow: #ff6666 0 0 10px;
   -moz-box-shadow: #ff6666 0 0 10px;

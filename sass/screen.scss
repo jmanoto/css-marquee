@@ -14,12 +14,24 @@ $dotColor: #400;
 $dotGlow: #FF6666;
 $dotHighlight: #FF5555;
 
+body {
+	background: #000;
+}
+
 
 h1 {
 	font-family: Helvetica;
 	font-size: 36px;
 }
 
+.container {
+	text-align: center;
+}
+
+
+.controls {
+	position: relative;
+}
 
 
 .marquee {
@@ -27,6 +39,8 @@ h1 {
 	padding: 10px;
 	background: #111;
 	height: ($dotDiameter + ($dotMargin * 2)) * $dotsTall;
+	margin: 5% auto;
+
 
 	.dot {
 		width: $dotDiameter;

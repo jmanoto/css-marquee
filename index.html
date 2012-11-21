@@ -8,9 +8,19 @@
 </head>
 <body>
     
-    <div class="marquee">
+    <div class="container">
+    
+        <div class="marquee">
+        </div>
+        
+        <div class="controls">
+            <input type="text" name="marqueeText" id="marqueeText">
+            <button onclick="marquee.SetText(jQuery('#marqueeText').val()); return false;">Set Text</button>
+            <button onclick="marquee.Stop()">Stop</button>
+        </div>
     </div>
     
+   
     
     
     <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
