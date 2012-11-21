@@ -17,7 +17,8 @@ var Marquee = function(options) {
 		DotMarkup: '<div class="dot">',
 		DotsAcross: null,
 
-		AnimationTimer: null
+		AnimationTimer: null,
+		LastMatrix: []
 	};
 
 
@@ -36,9 +37,12 @@ var Marquee = function(options) {
 		this.SetEvents();
 	};
 
+	/**
+	 * Setup event handlers
+	 */
 	this.SetEvents = function() {
 		this.Container.on('MarqueeEnded', (function() {
-			this.SetText(this.Options.MarqueeText);
+			this.DisplayMatrix(this.Options.LastMatrix);
 		}).bind(this));
 	};
 
@@ -73,7 +77,10 @@ var Marquee = function(options) {
 	};
 
 
-
+	/**
+	 * Sets the Marquee Text and displays it
+	 * @param {[type]} text [description]
+	 */
 	this.SetText = function(text) {
 		this.Stop();
 		this.Clear();
@@ -105,6 +112,8 @@ var Marquee = function(options) {
 
 		}
 
+		this.Options.LastMatrix = jQuery.extend(true, [], matrixString);
+
 		this.DisplayMatrix(matrixString);
 
 	};
@@ -116,16 +125,14 @@ var Marquee = function(options) {
 	 */
 	this.DisplayMatrix = function(matrix) {
 
+		matrix = jQuery.extend(true, [], matrix);
 		// matrix = matrix.slice();
 
 		var lastDots = this.Container.find('.row').find('.dot:last');
 		var rows = this.Container.find('.row');
 		
 		this.Options.AnimationTimer = setInterval((function() {
-			// debugger;
 
-
-			// Shift the dots
 			
 			jQuery.each(rows, function(index, row) {
 				row = jQuery(row);
@@ -138,10 +145,8 @@ var Marquee = function(options) {
 				});
 			});
 
-			// Get the first column of matrix points and stick them on the end
-			
 
-			// Each row
+
 			for(var y=0; y<matrix.length; y++) {
 
 				var ledValue = matrix[y][0];
@@ -152,7 +157,6 @@ var Marquee = function(options) {
 				matrix[y].shift();
 
 			}
-
 
 
 
