@@ -128,21 +128,23 @@ var Marquee = function(options) {
 		matrix = jQuery.extend(true, [], matrix);
 		// matrix = matrix.slice();
 
-		var lastDots = this.Container.find('.row').find('.dot:last');
+		var lastDots = [];
 		var rows = this.Container.find('.row');
 		
 		this.Options.AnimationTimer = setInterval((function() {
 
+			lastDots = [];
 			
 			jQuery.each(rows, function(index, row) {
 				row = jQuery(row);
-				var dots = row.find('.dot');
+				var firstDot = row.find('.dot:first');
 
-				jQuery.each(dots, function(index, dot) {
-					dot = jQuery(dot);
-					var nextDot = dot.next('.dot');
-					dot.attr({'class': nextDot.attr('class')});
-				});
+				// move the first dot to the end
+				var lastDot = firstDot.clone().removeClass('.on');
+				lastDots.push(lastDot);
+				firstDot.remove();
+				row.append(lastDot);
+
 			});
 
 
@@ -193,24 +195,6 @@ var Marquee = function(options) {
 		this.Container.find('.dot').removeClass('on');
 	};
 
-
-	/**
-	 * Animation Step loop
-	 */
-	var AnimationStep = function() {
-
-		var rows = this.Container.find('.row');
-		jQuery.each(rows, function(index, row) {
-			row = jQuery(row);
-			var dots = row.find('.dot');
-
-			jQuery.each(dots, function(index, dot) {
-				dot = jQuery(dot);
-				var nextDot = dot.next('.dot');
-				dot.attr({'class': nextDot.attr('class')});
-			});
-		});
-	};
 
 	/***********************
 	 * Initialization
